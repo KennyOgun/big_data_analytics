@@ -28,15 +28,19 @@ The London bike rides dataset consisted of twenty CSV files, each containing mon
 
 **Non-Informative Schemas:** c9 , c10 , c11 .These non-informative schemas contain blank information and will be removed from the dataset.
 
-**Data Cleaning**
+# Data Cleaning
 
-1. All the data files were merged to consolidate their information, resulting in a total row count of 11,249,221.
+All the data files were merged to consolidate their information, resulting in a total row count of 11,249,221.
  
-2. Missing Values: Missing values varies across the schemas ranging from 1,239,113 to 1,239,242 rows.
+1. Missing Values: Missing values varies across the schemas ranging from 1,239,113 to 1,239,242 rows, these were removed.
  
-3. Negative Values: There are presence of negative values in the Duration columns.
+3. Negative and Zero Values: There are presence of negative values(149 rows) and zero values (31,510 rows) in the Duration columns that were removed.
    
-4. Start and End Station count: Unique count of End Stations is 766 while that of Start Stations is 764
+4. Non-relevant years:  Count of 2013 data of 316,799 rows and 2015 data of 30,272 rows were identified as outliers in the dataset.
+
+5. No duplicates were identified
+
+**The resulting cleaned dataset contains 9,632,758 rows, meaning  a tiny fraction, about 1%, of our original data was lost.**
 
 **Variables Required for Analysis**
 
@@ -48,5 +52,56 @@ To answer the research hypothesis, the following variables are  necessary from t
 
 **Start Station Name:** "Baylis Road, Waterloo Station" will be derived specifically from this schema.
 
-**The resulting cleaned dataset contains 9,632,758 rows, meaning  a tiny fraction, about 1%, of our original data was lost.**
+
+**Data Suitability and Splitting for Comparative Analysis**
+
+The dataset was divided into two data frames for comparative analysis: one for **Baylis Road, Waterloo**, and one for **other stations**. 
+
+This approach is logical because the hypothesis focuses on rides from Baylis Road, Waterloo. Therefore, it was necessary to separate this station's data from the rest, combining the other stations into a single data frame labeled 'other stations' for comparison.
+
+1. **Baylis Road, Waterloo: Data Information**
+
+The Baylis Road, Waterloo data frame contains 25,703 rows, which is approximately 0.27% of the total dataset.
+The minimum and maximum ride durations are 1 hour and 10,470 hours, respectively.
+
+3. **Other Stations: Data Information**
+   
+The data frame for other stations contains 9,607,055 rows, about 99.73% of the total dataset.
+The minimum and maximum ride durations are 1 hour and 43,276 hours, respectively.
+
+# HYPOTHESIS TESTING
+
+The  hypothesis testing are:
+
+**Null Hypothesis (H0):**
+
+The average ride durations from Baylis Road, Waterloo are equal to the average ride durations from other stations. In other words, there is no significant difference in the average ride durations between Baylis Road, Waterloo and other stations.
+
+**Alternative Hypothesis (H1):** 
+
+The average ride durations from Baylis Road, Waterloo are different from the average ride durations from other stations. In other words, there is a significant difference in the average ride durations between Baylis Road, Waterloo and other stations.
+
+**T-TEST**
+
+In this section, a t-test was performed to determine which of the hypotheses can be confirmed. My assumptions are stated below;
+
+Assumptions for T-Test: 
+1.The samples are independent: By design, the samples are collected independently. This assumption is generally satisfied if the data was collected in such a manner.
+2.The data follows a normal distribution:The data follows a normal distribution. Histograms and Q-Q plots are used to visually assess normality.
+3.Alpha Level:A significance level of p = 0.05 was assumed. If p > 0.05,  reject H0, indicating significant differences in ride durations.
+4.The variances of the two populations are equal (homogeneity of variance).
+
+<img width="245" alt="image" src="https://github.com/user-attachments/assets/efd80c6e-9485-4fae-8729-6a638ad67a42" />
+
+Comment: The KDE curve resembles a bell curve, it indicates normality.
+
+<img width="244" alt="image" src="https://github.com/user-attachments/assets/3a3768af-992a-4b28-8398-7fb2f44dff45" />
+
+**Comments: The p-value (2.7363) > 0.05.Null hypothesis rejected.**
+
+**Results:*8
+
+**Accepted Hypothesis:Alternative Hypothesis (H1):**
+
+**There is significant difference in ride durations between Baylis Road, Waterloo and other stations in 2014. In other words, the average ride duration for rides originating from Baylis Road, Waterloo Station were indeed shorter compared to rides originating from other stations.  Specifically, the average ride duration for Baylis Road, Waterloo Station is about 7 hours shorter from the Other stations.**
 
