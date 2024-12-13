@@ -99,7 +99,7 @@ Comment: The KDE curve resembles a bell curve, it indicates normality.
 
 **Comments: The p-value (2.7363) > 0.05.Null hypothesis rejected.**
 
-**Results:*8
+**Results:**
 
 **Accepted Hypothesis:Alternative Hypothesis (H1):**
 
