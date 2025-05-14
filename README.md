@@ -1,5 +1,8 @@
 # Big Data Analytics and AI-Driven Insight Generation on Urban Mobility Using Apache Spark
 
+![big_data](https://github.com/user-attachments/assets/8d61e37c-0254-4963-a0f4-d82c7f1152dd)
+
+
 The primary objective of this analysis is to explore the hypothesis suggesting that **Rides originating from Baylis Road, Waterloo Station in 2014 were shorter compared to rides originating from alternative stations** using Big Data-Apache Spark
 
 # Exploratory Data Analysis (EDA)
