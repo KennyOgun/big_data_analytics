@@ -1,4 +1,4 @@
-# Bike Ride Data Analysis
+# Big Data Analytics and AI-Driven Insight Generation on Urban Mobility Using Apache Spark
 
 The primary objective of this analysis is to explore the hypothesis suggesting that **Rides originating from Baylis Road, Waterloo Station in 2014 were shorter compared to rides originating from alternative stations** using Big Data-Apache Spark
 
